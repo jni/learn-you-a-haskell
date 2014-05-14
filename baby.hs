@@ -23,7 +23,7 @@ bmiDiagnosis weight height
     | otherwise   = "Obese"
     where bmi = weight / height^2
 
-mytake :: (Num i) => i -> [a] -> [a]
+mytake :: (Num i, Ord i) => i -> [a] -> [a]
 mytake _ [] = []
 mytake n (x:xs)
     | n <= 0    = []
