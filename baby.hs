@@ -22,3 +22,10 @@ bmiDiagnosis weight height
     | bmi <= 30.0 = "Overweight"
     | otherwise   = "Obese"
     where bmi = weight / height^2
+
+mytake :: (Num i) => i -> [a] -> [a]
+mytake _ [] = []
+mytake n (x:xs)
+    | n <= 0    = []
+    | otherwise = x : mytake (n-1) xs
+
