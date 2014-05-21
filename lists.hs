@@ -14,3 +14,14 @@ partition' p = foldr (place p) ([], [])
                 place p x (xs, ys)
                     | p x       = (x:xs, ys)
                     | otherwise = (xs, x:ys)
+
+-- doesn't work
+-- squareFirstOver10 :: (Num a) => [a] -> Maybe a
+-- squareFirstOver10 xs = (L.find (>10) xs)^2
+
+squareFirstOver10 :: (Num a, Ord a) => [a] -> Maybe a
+squareFirstOver10 xs = square $ L.find (>10) xs
+                       where
+                           square :: (Num a) => Maybe a -> Maybe a
+                           square Nothing  = Nothing
+                           square (Just x) = Just (x^2)
