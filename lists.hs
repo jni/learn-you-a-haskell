@@ -25,3 +25,6 @@ squareFirstOver10 xs = square $ L.find (>10) xs
                            square :: (Num a) => Maybe a -> Maybe a
                            square Nothing  = Nothing
                            square (Just x) = Just (x^2)
+
+groupBy' :: (Eq b) => (a -> b) -> [a] -> [[a]]
+groupBy' key = L.groupBy (\x y -> key x == key y)
