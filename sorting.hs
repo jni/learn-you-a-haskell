@@ -1,3 +1,5 @@
+import qualified Data.List as L
+
 quicksort :: (Ord a) => [a] -> [a]
 quicksort [] = []
 quicksort (pivot:other) = left ++ [pivot] ++ right
@@ -15,3 +17,7 @@ mergesort xs = merge (mergesort left) (mergesort right)
                      merge (x:xs) (y:ys)
                         | x <= y = x : merge xs (y:ys)
                         | x >  y = y : merge (x:xs) ys
+
+insort :: (Ord a) => [a] -> [a]
+insort [] = []
+insort (x:xs) = L.insert x (insort xs)
